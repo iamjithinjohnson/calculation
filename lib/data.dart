@@ -1,13 +1,24 @@
 class Data {
   String productname;
-  String price;
-  String quantity;
-  String total;
+  double price;
+  int quantity;
+  double total;
 
   Data({
     this.productname,
     this.price,
-    this.quantity = "1",
+    this.quantity,
     this.total,
   });
+}
+
+List<Data> data() {
+  return <Data>[
+    Data(
+      productname: 'jithin',
+      price: 200,
+      quantity: 1,
+      total: 400,
+    ),
+  ];
 }
