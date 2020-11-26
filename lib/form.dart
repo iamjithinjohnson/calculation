@@ -25,7 +25,7 @@ class _FormDataState extends State<FormData> {
 
   @override
   Widget build(BuildContext context) {
-    KeyController controller = Get.put(KeyController());
+    //KeyController controller = Get.put(KeyController());
 
     var nameController = TextEditingController();
     var priceConttroller = TextEditingController();
@@ -167,7 +167,7 @@ class _FormDataState extends State<FormData> {
     TextEditingController name,
   ) {
     double p = double.parse(price.text);
-    int q = int.parse(quantity.text);
+    double q = double.parse(quantity.text);
     setState(() {
       total = p * q;
     });

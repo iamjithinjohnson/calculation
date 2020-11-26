@@ -1,15 +1,19 @@
+import 'package:calculation/theme/theme.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Show extends StatelessWidget {
   final String name;
   final double price;
-  final int quantity;
+  final double quantity;
   final double total;
+  final bool click;
   Show({
     this.name,
     this.price,
     this.quantity,
     this.total,
+    this.click,
   });
 
   @override
@@ -17,83 +21,61 @@ class Show extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
       child: Material(
-        elevation: 1,
-        clipBehavior: Clip.antiAlias,
-        borderRadius: BorderRadius.circular(8),
-        child: Column(
-          children: [
-            Container(
-              color: Colors.blue,
-              padding: EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          elevation: 1,
+          clipBehavior: Clip.antiAlias,
+          borderRadius: BorderRadius.circular(8),
+          child: Column(
+            children: [
+              Table(
                 children: [
-                  Text(
-                    'Name',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
-                  ),
-                  //SizedBox(width: 50),
-                  Text(
-                    'Price',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
-                  ),
-                  //SizedBox(width: 50),
-                  Text(
-                    'Quantity',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
-                  ),
+                  TableRow(
+                      decoration: BoxDecoration(color: darkmode(click)),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                              children: [Text('Name', style: headtextstyle)]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                              children: [Text('Price', style: headtextstyle)]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(children: [
+                            Text('Quantity', style: headtextstyle)
+                          ]),
+                        ),
+                      ]),
+                  TableRow(
+                      decoration: BoxDecoration(color: Colors.white),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child:
+                              Column(children: [Text(name, style: textstyle)]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(children: [
+                            Text('${price.toString()}\t\tRs', style: textstyle)
+                          ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(children: [
+                            Text(quantity.toString(), style: textstyle)
+                          ]),
+                        )
+                      ]),
                 ],
               ),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        name,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                      //SizedBox(width: 50),
-                      Text(
-                        price.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                      //SizedBox(width: 50),
-                      Text(
-                        quantity.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
+              Container(
+                color: white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
@@ -108,12 +90,21 @@ class Show extends StatelessWidget {
                       IconButton(icon: Icon(Icons.create), onPressed: null)
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          )),
     );
   }
+
+  TextStyle textstyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+  );
+
+  TextStyle headtextstyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    color: white,
+    fontSize: 17,
+  );
 }

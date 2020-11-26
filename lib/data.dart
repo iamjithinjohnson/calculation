@@ -1,7 +1,7 @@
 class Data {
   String productname;
   double price;
-  int quantity;
+  double quantity;
   double total;
 
   Data({
