@@ -1,4 +1,5 @@
 import 'package:calculation/database/model.dart';
+import 'package:calculation/drawer/customdrawer.dart';
 import 'package:calculation/screen/show.dart';
 import 'package:calculation/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -65,57 +66,58 @@ class _HomePageState extends State<HomePage> {
         //     );
         //   },
         // ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              ListTile(
-                leading: Icon(Icons.picture_in_picture),
-                title: Text('Gallery'),
-                onTap: () {
-                  // enter something
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.location_city),
-                title: Text('Location'),
-                onTap: () {
-                  // enter something
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Dark mode'),
-                onTap: () {
-                  setState(() {
-                    Navigator.pop(context);
+        drawer: CustomDrawer(),
+        // Drawer(
+        //   child: ListView(
+        //     children: [
+        //       ListTile(
+        //         leading: Icon(Icons.picture_in_picture),
+        //         title: Text('Gallery'),
+        //         onTap: () {
+        //           // enter something
+        //         },
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.location_city),
+        //         title: Text('Location'),
+        //         onTap: () {
+        //           // enter something
+        //         },
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.settings),
+        //         title: Text('Dark mode'),
+        //         onTap: () {
+        //           setState(() {
+        //             Navigator.pop(context);
 
-                    if (click) {
-                      darkmode(click);
-                      click = false;
-                    } else {
-                      darkmode(click);
-                      click = true;
-                    }
-                  });
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.hourglass_empty),
-                title: Text('Privacy Policy'),
-                onTap: () {
-                  //enter something
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.hourglass_empty),
-                title: Text('Terms and condition'),
-                onTap: () {
-                  //enter something
-                },
-              ),
-            ],
-          ),
-        ),
+        //             if (click) {
+        //               darkmode(click);
+        //               click = false;
+        //             } else {
+        //               darkmode(click);
+        //               click = true;
+        //             }
+        //           });
+        //         },
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.hourglass_empty),
+        //         title: Text('Privacy Policy'),
+        //         onTap: () {
+        //           //enter something
+        //         },
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.hourglass_empty),
+        //         title: Text('Terms and condition'),
+        //         onTap: () {
+        //           //enter something
+        //         },
+        //       ),
+        //     ],
+        //   ),
+        // ),
         body: SafeArea(
           child: Column(
             children: [
@@ -124,14 +126,14 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Material(
-                    elevation: 1,
+                    elevation: 0.5,
                     clipBehavior: Clip.antiAlias,
                     borderRadius: BorderRadius.circular(8),
                     child: Column(
                       children: [
                         Container(
                           padding: EdgeInsets.only(right: 20),
-                          color: darkmode(click),
+                          color: white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -139,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   'Clear',
                                   style: TextStyle(
-                                    color: white,
+                                    color: bluegrey,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                   ),
@@ -158,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   'Total $fulltotal',
                                   style: TextStyle(
-                                    color: white,
+                                    color: bluegrey,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                   ),
@@ -253,16 +255,18 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   RaisedButton(
-                                    color: darkmode(click),
+                                    color: white,
                                     child: Text(
                                       'submit',
                                       style: TextStyle(
-                                        color: white,
+                                        color: bluegrey,
                                       ),
                                     ),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        side: BorderSide(
+                                            color: bluegrey, width: 0)),
                                     onPressed: () {
                                       form.currentState.save();
                                       form.currentState.validate();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //  ##### COLOR #####
 
 Color bluegrey = Colors.blueGrey;
+Color black = Colors.black;
 Color blue = Colors.blue;
 Color yellow = Colors.yellow;
 Color white = Colors.white;

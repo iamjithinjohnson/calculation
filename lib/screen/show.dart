@@ -21,33 +21,30 @@ class Show extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
       child: Material(
-          elevation: 1,
+          elevation: 0.5,
           clipBehavior: Clip.antiAlias,
           borderRadius: BorderRadius.circular(8),
           child: Column(
             children: [
               Table(
                 children: [
-                  TableRow(
-                      decoration: BoxDecoration(color: darkmode(click)),
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                              children: [Text('Name', style: headtextstyle)]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                              children: [Text('Price', style: headtextstyle)]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(children: [
-                            Text('Quantity', style: headtextstyle)
-                          ]),
-                        ),
-                      ]),
+                  TableRow(decoration: BoxDecoration(color: white), children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                          children: [Text('Name', style: headtextstyle)]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                          children: [Text('Price', style: headtextstyle)]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                          children: [Text('Quantity', style: headtextstyle)]),
+                    ),
+                  ]),
                   TableRow(
                       decoration: BoxDecoration(color: Colors.white),
                       children: [
@@ -82,7 +79,7 @@ class Show extends StatelessWidget {
                         'Total : $total',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
                       Spacer(),
@@ -98,13 +95,13 @@ class Show extends StatelessWidget {
   }
 
   TextStyle textstyle = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    fontSize: 15,
   );
 
   TextStyle headtextstyle = TextStyle(
-    fontWeight: FontWeight.bold,
-    color: white,
-    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: black,
+    fontSize: 16,
   );
 }

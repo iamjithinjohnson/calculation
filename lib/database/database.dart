@@ -58,7 +58,7 @@ class DBProvider {
 
   Future<List<Client>> getAllClients() async {
     final db = await database;
-    var res = await db.query("Client");
+    var res = await db.rawQuery("SELECT * FROM Client");
     List<Client> list =
         res.isNotEmpty ? res.map((c) => Client.fromMap(c)).toList() : [];
     return list;
